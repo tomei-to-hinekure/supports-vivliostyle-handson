@@ -1,0 +1,49 @@
+@import url("../base.css");
+
+* {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.colophon {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5em;
+  justify-content: end;
+  min-height: 100vh;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+}
+
+.book-title {
+  padding-block-end: 0.2em;
+  font-size: 2em;
+  border-block-end: solid 0.05em #000;
+}
+
+.publish-dates {
+  display: grid;
+  grid-template-columns: 8.5em auto;
+  gap: 0.2em 0.5em;
+}
+
+.other-info {
+  display: grid;
+  grid-template-columns: 2em auto;
+  gap: 0.2em 7em;
+  margin-block-start: 1em;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}

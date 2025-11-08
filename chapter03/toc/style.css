@@ -1,0 +1,45 @@
+@import url("../base.css");
+
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+[role="doc-toc"] ol {
+  counter-reset: toc-counter;
+}
+
+[role="doc-toc"] li {
+  counter-increment: toc-counter;
+}
+
+[role="doc-toc"] > ol > li {
+  margin-block: var(--spacing-block);
+}
+
+[role="doc-toc"] > ol > li > ol {
+  margin-block-start: calc(var(--spacing-block) / 2);
+}
+
+[role="doc-toc"] > ol > li > a {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+[role="doc-toc"] > ol > li > a::before {
+  padding-left: 0.5em;
+  font-weight: 400;
+  vertical-align: middle;
+  text-transform: uppercase;
+  white-space: pre;
+  content: "Chapter " counter(toc-counter) "\A";
+  border-left: 0.5em solid #176db0;
+}
+
+[role="doc-toc"] > ol > li > ol a::before {
+  content: counters(toc-counter, ".") " ";
+}
+
+[role="doc-toc"] > ol > li > ol a::after {
+  content: leader(".") " " target-counter(attr(href), page) " ";
+}

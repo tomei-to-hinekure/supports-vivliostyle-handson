@@ -1,0 +1,333 @@
+@import url("./base.css");
+
+:root {
+  /* Solarized Light */
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #93a1a1;
+  --base2: #eee8d5;
+  --base3: #fdf6e3;
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+
+  /* table */
+  --table-border-width: 1px;
+}
+
+@page {
+  @bottom-center {
+    content: counter(page);
+  }
+}
+
+@page :left {
+  @top-left {
+    content: env(doc-title);
+  }
+}
+
+@page :first {
+  counter-reset: chapter-counter;
+}
+
+@page :nth(1) {
+  counter-increment: chapter-counter;
+
+  @bottom-center {
+    content: none;
+  }
+}
+
+.level1 {
+  break-after: page;
+}
+
+.level1 h1 {
+  padding: 4rem;
+  font-size: 4em;
+  color: #fff;
+  background: #176db0;
+}
+
+.level1 h1::before {
+  font-size: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  white-space: pre;
+  content: "Chapter " counter(chapter-counter) "\A";
+  opacity: 0.7;
+}
+
+.chapter-description {
+  padding: 5.5rem 4rem;
+  line-height: 1.8;
+}
+
+h1,
+h2 {
+  margin-block: var(--spacing-block);
+}
+
+h1 {
+  font-size: 2em;
+  counter-reset: section-counter;
+}
+
+h1::before {
+  content: counter(chapter-counter) " ";
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h2::before {
+  content: counter(chapter-counter) "." counter(section-counter) " ";
+  counter-increment: section-counter;
+}
+
+p {
+  margin-block: var(--spacing-block);
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--spacing-block) var(--spacing-inline);
+}
+
+figcaption {
+  margin-block: var(--spacing-block);
+}
+
+:not(pre) > code,
+pre[class*="language-"] {
+  color: var(--base00);
+  background-color: var(--base3);
+}
+
+:not(pre) > code {
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  border-radius: 0.3em;
+}
+
+.token.keyword {
+  color: var(--green);
+}
+
+.token.builtin {
+  color: var(--cyan);
+}
+
+.token.class-name {
+  color: var(--yellow);
+}
+
+.token.function {
+  color: var(--yellow);
+}
+
+.token.boolean {
+  color: var(--blue);
+}
+
+.token.number {
+  color: var(--blue);
+}
+
+.token.string {
+  color: var(--cyan);
+}
+
+.token.char {
+  color: var(--cyan);
+}
+
+.token.symbol {
+  color: var(--blue);
+}
+
+.token.regex {
+  color: var(--orange);
+}
+
+.token.url {
+  color: var(--cyan);
+}
+
+.token.operator {
+  /* inherit */
+}
+
+.token.variable {
+  color: var(--orange);
+}
+
+.token.constant {
+  color: var(--blue);
+}
+
+.token.property {
+  color: var(--blue);
+}
+
+.token.punctuation {
+  color: var(--base01);
+}
+
+.token.important {
+  color: var(--orange);
+}
+
+.token.comment {
+  color: var(--base1);
+}
+
+.token.tag {
+  color: var(--blue);
+}
+
+.token.attr-name {
+  color: var(--cyan);
+}
+
+.token.attr-value {
+  color: var(--green);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.prolog {
+  color: var(--base1);
+}
+
+.token.doctype {
+  color: var(--base1);
+}
+
+.token.cdata {
+  color: var(--base1);
+}
+
+.token.entity {
+  color: var(--base00);
+  background-color: var(--base2);
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.atrule {
+  color: var(--green);
+}
+
+.token.selector {
+  color: var(--cyan);
+}
+
+.token.inserted {
+  color: var(--cyan);
+}
+
+.token.deleted {
+  color: var(--blue);
+}
+
+ul,
+ol,
+dl {
+  margin-block: var(--spacing-block);
+}
+
+:is(ul, ol) :is(ul, ol),
+dl dl {
+  margin-block: 0;
+}
+
+ul,
+ol {
+  padding-inline-start: var(--spacing-inline);
+}
+
+:is(ol, ul):not(:is(ul *, ol *)) {
+  padding-inline-start: 2em;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+dd {
+  margin-inline-start: var(--spacing-inline);
+}
+
+table,
+table * {
+  border-style: solid;
+  border-width: 0;
+}
+
+table {
+  margin: var(--spacing-block) auto;
+  border-collapse: collapse;
+  border-width: var(--table-border-width);
+}
+
+th,
+td {
+  padding: 0.25em 0.5em;
+}
+
+tr:not(:last-child) {
+  border-block-end-width: var(--table-border-width);
+}
+
+thead > tr:last-child {
+  border-block-end-width: var(--table-border-width);
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-inline-end-width: var(--table-border-width);
+}
+
+.footnote-element {
+  float: footnote;
+}
+
+::footnote-call,
+::footnote-marker {
+  color: #00e;
+}
+
+::footnote-call {
+  font-size: 0.8em;
+  vertical-align: super;
+  content: "[" counter(footnote) "]";
+}
+
+::footnote-marker {
+  content: "[" counter(footnote) "] ";
+}

@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "preview": "vivliostyle preview",
+    "build": "vivliostyle build"
+  },
+  "devDependencies": {
+    "@vivliostyle/cli": "^9.7.2"
+  }
+}
